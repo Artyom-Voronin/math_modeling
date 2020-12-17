@@ -48,6 +48,41 @@ def parabola(a=1, title = "Model"):
     plt.title(title)
     plt.plot(x, y, color='k', marker='8', ms=0.4)
     
+def sputnik11(R = 0.02,title = "my circle"):
+    x = np.arange(-4, 4, 0.1)
+    y = np.arange(-4, 4, 0.1)
+    x, y = np.meshgrid(x,y)
+    fxy = (x-0.5)**2 + (y-2)**2
+    plt.contour(x, y, fxy, levels=[R])
+    plt.xlabel('coord -x')
+    plt.ylabel('coord -y')
+    plt.title(title)    
+    plt.axis("equal")
+    
+def sputnik12(R = 0.01,title = "my circle"):
+    x = np.arange(-4, 4, 0.1)
+    y = np.arange(-4, 4, 0.1)
+    x, y = np.meshgrid(x,y)
+    fxy = (x-0.5)**2 + (y-2)**2
+    plt.contour(x, y, fxy, levels=[R])
+    plt.xlabel('coord -x')
+    plt.ylabel('coord -y')
+    plt.title(title)    
+    plt.axis("equal")
+    
+def sputnik13(R = 0.005,title = "my circle"):
+    x = np.arange(-4, 4, 0.1)
+    y = np.arange(-4, 4, 0.1)
+    x, y = np.meshgrid(x,y)
+    fxy = (x-0.5)**2 + (y-2)**2
+    plt.contour(x, y, fxy, levels=[R])
+    plt.xlabel('coord -x')
+    plt.ylabel('coord -y')
+    plt.title(title)    
+    plt.axis("equal")
+sputnik13()   
+sputnik12()   
+sputnik11()  
 circle1()     
 parabola()
 plt.show() 
@@ -62,14 +97,38 @@ def ellipse(a = 3.5, b = 2, title="my ellipse"):
     plt.ylabel('coord -y')
     plt.title(title)
     plt.axis("equal")
+
+def sputnik21(R = 0.02,title = "my circle"):
+    x = np.arange(-4, 4, 0.1)
+    y = np.arange(-4, 4, 0.1)
+    x, y = np.meshgrid(x,y)
+    fxy = x**2 + (y-2)**2
+    plt.contour(x, y, fxy, levels=[R])
+    plt.xlabel('coord -x')
+    plt.ylabel('coord -y')
+    plt.title(title)    
+    plt.axis("equal")
     
+def sputnik22(R = 0.01,title = "my circle"):
+    x = np.arange(-4, 4, 0.1)
+    y = np.arange(-4, 4, 0.1)
+    x, y = np.meshgrid(x,y)
+    fxy = x**2 + (y-2)**2
+    plt.contour(x, y, fxy, levels=[R])
+    plt.xlabel('coord -x')
+    plt.ylabel('coord -y')
+    plt.title(title)    
+    plt.axis("equal")
+
+sputnik22()    
+sputnik21()   
 ellipse()
 circle()
 plt.show() 
 
 def circle2(R = 2,title = "my circle"):
-    x = np.arange(-3, 3, 0.1)
-    y = np.arange(-3, 3, 0.1)
+    x = np.arange(-5, 5, 0.1)
+    y = np.arange(-5, 5, 0.1)
     x, y = np.meshgrid(x,y)
     fxy = x**2 + y**2
     plt.contour(x, y, fxy, levels=[R])
@@ -88,7 +147,31 @@ def parabola(a = -2, b = 0, c = 2, title = "my parabola"):
     plt.ylabel('coord -y')
     plt.title(title)
     
+ 
+def sputnik31(R = 0.02,title = "my circle"):
+    x = np.arange(-4, 4, 0.1)
+    y = np.arange(-4, 4, 0.1)
+    x, y = np.meshgrid(x,y)
+    fxy = x**2 + (y-2)**2
+    plt.contour(x, y, fxy, levels=[R])
+    plt.xlabel('coord -x')
+    plt.ylabel('coord -y')
+    plt.title(title)    
+    plt.axis("equal")
     
+def sputnik32(R = 0.01,title = "my circle"):
+    x = np.arange(-4, 4, 0.1)
+    y = np.arange(-4, 4, 0.1)
+    x, y = np.meshgrid(x,y)
+    fxy = x**2 + (y-2)**2
+    plt.contour(x, y, fxy, levels=[R])
+    plt.xlabel('coord -x')
+    plt.ylabel('coord -y')
+    plt.title(title)    
+    plt.axis("equal")
+  
+sputnik32()    
+sputnik31()
 parabola()
 circle2()
 plt.show()
