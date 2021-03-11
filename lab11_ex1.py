@@ -7,57 +7,50 @@ frames = 200
 t = np.linspace(0, 5, frames)
 
 def move_func(z, t):
-    x, v_x, y, v_y = z
-    dxdt = v_x
-    dv_xdt = 0
-    dydt = v_y
-    dv_ydt = - g - k * v 
-    return dxdt, dv_xdt, dydt, dv_ydt
+    x, vx, y, vy = z
+    dxdt = vx
+    dvxdt = 0
+    dydt = vy
+    dvydt = -((vy / abs(vy)) * mu * vy ** 2 + g)
+    return dxdt, dvxdt, dydt, dvydt
+
+
 g = 9.8
 v = 20
-k = 0.1
-μ = 0.1
-alpha = 90 * np.pi / 180
+m = 0.5
+mu = 0.1
 
 x0 = 0
-v_x0 = 0
+vx0 = 0
 y0 = 0
-v_y0 = v * np.sin(alpha)
+vy0 = v
 
-z0 = x0, v_x0, y0, v_y0
+z0 = x0, vx0, y0, vy0
 
-sol = odeint(move_func, z0, t)
-
-def solve_func(i, key):
-    if key == 'point':
-        x = sol[i, 0]
-        y = sol[i, 2]
-    else:
-        x = sol[:i, 0]
-        y = sol[:i, 2]
+def solve_func(i):
+    sol = odeint(move_func, z0, t)
+    x = sol[i, 0]
+    y = sol[i, 2]
     return x, y
-  
 
 fig, ax = plt.subplots()
 
-ball, = plt.plot([], [], 'o', color='k')
-ball_line, = plt.plot([], [], '-', color='k')
+ball, = plt.plot([], [], 'o', color='r')
 
 def animate(i):
-    ball.set_data(solve_func(i, 'point'))
-    ball_line.set_data(solve_func(i, 'line'))
+    ball.set_data(solve_func(i))
+
 
 ani = FuncAnimation(fig,
                     animate,
                     frames=frames,
                     interval=30)
 
-ax.set_xlim(-3, 3)
-ax.set_ylim(0, 30)
+edge = 15
+ax.set_xlim(-1, edge)
+ax.set_ylim(-1, edge)
 
 plt.show()
-
-
 
 
 
